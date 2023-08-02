@@ -14,19 +14,15 @@ const fetchProjects = () => {
   const getData = async () => {
     try {
       const response = await client.getEntries({ content_type: 'projects' });
-      //   const id = response.items.sys.id;
-
-      setProjects(response.items.map((item) => item.fields));
-
-      console.log(projects);
-
-      //   const teste = response.items[0].fields;
-
-      //   console.log(teste);
-      //   console.log(response.items.map((item) => item.sys.id));
-
-      //   return projects;
+      const projects = response.items.map(item => {
+        const { title, image, url } = item.fields
+        const img = image?.fields?.file?.url
+        const id = item.sys.id
+        return { title, url, img, id }
+      })
+      setProjects(projects)
       setIsLoading(false);
+
     } catch (error) {
       console.log(error);
       setIsLoading(false);
@@ -34,8 +30,10 @@ const fetchProjects = () => {
   };
 
   useEffect(() => {
-    getData();
+    getData()
   }, []);
+
+  return { isLoading, projects }
 };
 
 export default fetchProjects;

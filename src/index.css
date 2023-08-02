@@ -289,12 +289,22 @@ PROJECT CSS
   grid-template-columns: 2fr 1fr;
   align-items: center;
 
-  padding-top: 5rem;
+  padding: 5rem 0;
+}
+
+.hero-title h1 {
+  font-weight: 700;
+  color: var(--grey-900);
+  margin-bottom: 2rem;
+}
+
+.hero-title p {
+  color: var(--grey-600);
+  line-height: 2rem;
 }
 
 @media (max-width: 991px) {
   .img-container {
-    /* visibility: hidden; */
     display: none;
   }
 }
@@ -303,3 +313,67 @@ PROJECT CSS
 PROJECTS 
 =============
 */
+
+.projects {
+  background: var(--grey-200);
+  padding: 5rem 0;
+}
+
+.projects .title {
+  font-size: 3rem;
+  color: var(--grey-900);
+}
+
+.projects-center {
+  max-width: var(--max-width);
+  width: var(--fluid-width);
+  margin: 0 auto;
+  margin-top: 3rem;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 991px) {
+  .projects-center {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .projects-center {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project {
+  background: var(--white);
+  border-radius: var(--borderRadius);
+  box-shadow: var(--shadow-1);
+  transition: var(--transition);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project:hover {
+  box-shadow: var(--shadow-3);
+  transform: scale(1.05);
+}
+
+.project h5 {
+  padding: 1rem 0;
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--grey-700);
+  line-height: 1.5rem;
+  font-weight: 400;
+}
+
+.project .img {
+  height: 100%;
+  border-top-left-radius: var(--borderRadius);
+  border-top-right-radius: var(--borderRadius);
+}
